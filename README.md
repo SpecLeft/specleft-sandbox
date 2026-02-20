@@ -85,6 +85,9 @@ The above steps create a test skeleton - this is your scaffolding.
 
 You can now implement the code and test logic.
 
+#### Activate the tests
+
+Remove the skipped params from the tests
 
 ### Run tests
 
