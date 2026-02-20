@@ -90,23 +90,6 @@ Builds an HTML report from `.specleft/results/`.
 `specleft contract test --format json [--verbose]`
 Run to verify deterministic and safe command guarantees.
 
-## Skill Command Group
-
-### Show skill commands
-`specleft skill --help`
-Displays skill lifecycle subcommands (`verify`, `update`).
-
-### Verify skill integrity
-`specleft skill verify --format json`
-Returns `pass`, `modified`, or `outdated` integrity status.
-
-### Update skill files
-`specleft skill update --format json`
-Regenerates `.specleft/SKILL.md` and `.specleft/SKILL.md.sha256`.
-
-### Verify within doctor checks
-`specleft doctor --verify-skill --format json`
-Adds skill integrity status to standard environment diagnostics.
 
 ## Enforcement
 
