@@ -1,0 +1,1116 @@
+{
+  "run_id": "2026-02-24T15:34:29.838234",
+  "summary": {
+    "total_features": 5,
+    "total_scenarios": 20,
+    "total_executions": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "duration": 1.975
+  },
+  "features": [
+    {
+      "feature_id": "f1-rule-management-crud",
+      "feature_name": "F1 \u2014 Rule Management (CRUD)",
+      "feature_priority": "medium",
+      "scenarios": [
+        {
+          "scenario_id": "create-a-valid-rule",
+          "scenario_name": "Create a valid rule",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "create-a-valid-rule",
+              "test_name": "test_create_a_valid_rule",
+              "original_name": "test_create_a_valid_rule",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_create_a_valid_rule",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Create a valid rule",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.01068866701098159,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with one condition and one log channel",
+                  "status": "passed",
+                  "duration": 1.1e-05,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.010442,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 201 with the created rule and its id",
+                  "status": "passed",
+                  "duration": 1.4e-05,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "delete-cascades-to-conditions-and-channels",
+          "scenario_name": "Delete cascades to conditions and channels",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "delete-cascades-to-conditions-and-channels",
+              "test_name": "test_delete_cascades_to_conditions_and_channels",
+              "original_name": "test_delete_cascades_to_conditions_and_channels",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_delete_cascades_to_conditions_and_channels",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Delete cascades to conditions and channels",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.008234083012212068,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given an existing rule with two conditions and one channel",
+                  "status": "passed",
+                  "duration": 0.00442,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I DELETE the rule",
+                  "status": "passed",
+                  "duration": 0.00322,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the conditions and channel are also removed",
+                  "status": "passed",
+                  "duration": 0.000422,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "get-rule-by-id",
+          "scenario_name": "Get rule by id",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "get-rule-by-id",
+              "test_name": "test_get_rule_by_id",
+              "original_name": "test_get_rule_by_id",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_get_rule_by_id",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Get rule by id",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "medium",
+              "status": "passed",
+              "duration": 0.00584425003034994,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given an existing rule",
+                  "status": "passed",
+                  "duration": 0.003914,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I GET /rules/<built-in function id>",
+                  "status": "passed",
+                  "duration": 0.00176,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 200 with the rule",
+                  "status": "passed",
+                  "duration": 9e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "list-rules",
+          "scenario_name": "List rules",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "list-rules",
+              "test_name": "test_list_rules",
+              "original_name": "test_list_rules",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_list_rules",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "List rules",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "medium",
+              "status": "passed",
+              "duration": 0.008546374971047044,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given two existing rules",
+                  "status": "passed",
+                  "duration": 0.006059,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I GET /rules",
+                  "status": "passed",
+                  "duration": 0.002287,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 200 with both rules",
+                  "status": "passed",
+                  "duration": 1.3e-05,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "reject-duplicate-rule-name",
+          "scenario_name": "Reject duplicate rule name",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "reject-duplicate-rule-name",
+              "test_name": "test_reject_duplicate_rule_name",
+              "original_name": "test_reject_duplicate_rule_name",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_reject_duplicate_rule_name",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Reject duplicate rule name",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.006094750016927719,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given an existing rule named \"alert-on-signup\"",
+                  "status": "passed",
+                  "duration": 0.004498,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST a new rule with name \"alert-on-signup\"",
+                  "status": "passed",
+                  "duration": 0.001425,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 409 Conflict",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "rule-creation-rejected-without-a-channel",
+          "scenario_name": "Rule creation rejected without a channel",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "rule-creation-rejected-without-a-channel",
+              "test_name": "test_rule_creation_rejected_without_a_channel",
+              "original_name": "test_rule_creation_rejected_without_a_channel",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_rule_creation_rejected_without_a_channel",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Rule creation rejected without a channel",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.0021979580051265657,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with one condition and no channels",
+                  "status": "passed",
+                  "duration": 5e-06,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.002041,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 422",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "rule-creation-rejected-without-a-condition",
+          "scenario_name": "Rule creation rejected without a condition",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "rule-creation-rejected-without-a-condition",
+              "test_name": "test_rule_creation_rejected_without_a_condition",
+              "original_name": "test_rule_creation_rejected_without_a_condition",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_rule_creation_rejected_without_a_condition",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Rule creation rejected without a condition",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.0012019170098938048,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with no conditions and one log channel",
+                  "status": "passed",
+                  "duration": 4e-06,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.00109,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 422",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "update-rule-fields",
+          "scenario_name": "Update rule fields",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f1-rule-management-crud",
+              "scenario_id": "update-rule-fields",
+              "test_name": "test_update_rule_fields",
+              "original_name": "test_update_rule_fields",
+              "nodeid": "tests/test_f1-rule-management-crud.py::test_update_rule_fields",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F1 \u2014 Rule Management (CRUD)",
+              "scenario_name": "Update rule fields",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "medium",
+              "status": "passed",
+              "duration": 0.009753584046848118,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given an existing rule",
+                  "status": "passed",
+                  "duration": 0.003842,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I PATCH /rules/<built-in function id> with a new name and is_active false",
+                  "status": "passed",
+                  "duration": 0.005712,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 200 with the updated rule",
+                  "status": "passed",
+                  "duration": 1e-05,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "f2-conditions",
+      "feature_name": "F2 \u2014 Conditions",
+      "feature_priority": "medium",
+      "scenarios": [
+        {
+          "scenario_id": "gt-on-non-numeric-evaluates-false",
+          "scenario_name": "gt on non-numeric evaluates false",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f2-conditions",
+              "scenario_id": "gt-on-non-numeric-evaluates-false",
+              "test_name": "test_gt_on_non_numeric_evaluates_false",
+              "original_name": "test_gt_on_non_numeric_evaluates_false",
+              "nodeid": "tests/test_f2-conditions.py::test_gt_on_non_numeric_evaluates_false",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F2 \u2014 Conditions",
+              "scenario_name": "gt on non-numeric evaluates false",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.30779395904392004,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule with condition \"user.role\" gt \"5\"",
+                  "status": "passed",
+                  "duration": 0.004398,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST an event with payload {\"user\": {\"role\": \"admin\"}}",
+                  "status": "passed",
+                  "duration": 0.002355,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the rule is not triggered",
+                  "status": "passed",
+                  "duration": 0.300815,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "missing-field-path-evaluates-false",
+          "scenario_name": "Missing field path evaluates false",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f2-conditions",
+              "scenario_id": "missing-field-path-evaluates-false",
+              "test_name": "test_missing_field_path_evaluates_false",
+              "original_name": "test_missing_field_path_evaluates_false",
+              "nodeid": "tests/test_f2-conditions.py::test_missing_field_path_evaluates_false",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F2 \u2014 Conditions",
+              "scenario_name": "Missing field path evaluates false",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.3108210830250755,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule with condition \"user.role\" eq \"admin\"",
+                  "status": "passed",
+                  "duration": 0.004534,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST an event with payload missing \"user.role\"",
+                  "status": "passed",
+                  "duration": 0.002558,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the rule is not triggered",
+                  "status": "passed",
+                  "duration": 0.303466,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "reject-unknown-operator",
+          "scenario_name": "Reject unknown operator",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f2-conditions",
+              "scenario_id": "reject-unknown-operator",
+              "test_name": "test_reject_unknown_operator",
+              "original_name": "test_reject_unknown_operator",
+              "nodeid": "tests/test_f2-conditions.py::test_reject_unknown_operator",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F2 \u2014 Conditions",
+              "scenario_name": "Reject unknown operator",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.001669041987042874,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with a condition using operator \"between\"",
+                  "status": "passed",
+                  "duration": 9e-06,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.001483,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 422",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "f3-channels",
+      "feature_name": "F3 \u2014 Channels",
+      "feature_priority": "medium",
+      "scenarios": [
+        {
+          "scenario_id": "one-channel-failure-does-not-block-others",
+          "scenario_name": "One channel failure does not block others",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f3-channels",
+              "scenario_id": "one-channel-failure-does-not-block-others",
+              "test_name": "test_one_channel_failure_does_not_block_others",
+              "original_name": "test_one_channel_failure_does_not_block_others",
+              "nodeid": "tests/test_f3-channels.py::test_one_channel_failure_does_not_block_others",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F3 \u2014 Channels",
+              "scenario_name": "One channel failure does not block others",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.32127449999097735,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule with a failing webhook channel and a log channel",
+                  "status": "passed",
+                  "duration": 0.004915,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When the rule fires",
+                  "status": "passed",
+                  "duration": 0.002207,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the log channel dispatches successfully",
+                  "status": "passed",
+                  "duration": 0.31392,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "And a DispatchRecord with status \"failed\" exists for the webhook",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "reject-invalid-email-config",
+          "scenario_name": "Reject invalid email config",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f3-channels",
+              "scenario_id": "reject-invalid-email-config",
+              "test_name": "test_reject_invalid_email_config",
+              "original_name": "test_reject_invalid_email_config",
+              "nodeid": "tests/test_f3-channels.py::test_reject_invalid_email_config",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F3 \u2014 Channels",
+              "scenario_name": "Reject invalid email config",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.001325917022768408,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with an email channel missing to",
+                  "status": "passed",
+                  "duration": 7e-06,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.001187,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 422",
+                  "status": "passed",
+                  "duration": 1e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "reject-invalid-webhook-config",
+          "scenario_name": "Reject invalid webhook config",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f3-channels",
+              "scenario_id": "reject-invalid-webhook-config",
+              "test_name": "test_reject_invalid_webhook_config",
+              "original_name": "test_reject_invalid_webhook_config",
+              "nodeid": "tests/test_f3-channels.py::test_reject_invalid_webhook_config",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F3 \u2014 Channels",
+              "scenario_name": "Reject invalid webhook config",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.0016017919988371432,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule payload with a webhook channel missing url",
+                  "status": "passed",
+                  "duration": 7e-06,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST to /rules",
+                  "status": "passed",
+                  "duration": 0.001439,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then I receive 422",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "f4-event-publishing",
+      "feature_name": "F4 \u2014 Event Publishing",
+      "feature_priority": "medium",
+      "scenarios": [
+        {
+          "scenario_id": "event-response-is-non-blocking",
+          "scenario_name": "Event response is non-blocking",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f4-event-publishing",
+              "scenario_id": "event-response-is-non-blocking",
+              "test_name": "test_event_response_is_non_blocking",
+              "original_name": "test_event_response_is_non_blocking",
+              "nodeid": "tests/test_f4-event-publishing.py::test_event_response_is_non_blocking",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F4 \u2014 Event Publishing",
+              "scenario_name": "Event response is non-blocking",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "medium",
+              "status": "passed",
+              "duration": 0.00743920897366479,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule with a slow webhook channel",
+                  "status": "passed",
+                  "duration": 0.004741,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST a matching event",
+                  "status": "passed",
+                  "duration": 0.002529,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the response returns 202 before the webhook completes",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "inactive-rule-is-skipped",
+          "scenario_name": "Inactive rule is skipped",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f4-event-publishing",
+              "scenario_id": "inactive-rule-is-skipped",
+              "test_name": "test_inactive_rule_is_skipped",
+              "original_name": "test_inactive_rule_is_skipped",
+              "nodeid": "tests/test_f4-event-publishing.py::test_inactive_rule_is_skipped",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F4 \u2014 Event Publishing",
+              "scenario_name": "Inactive rule is skipped",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.31969041703268886,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a deactivated rule matching the event type",
+                  "status": "passed",
+                  "duration": 0.005327,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST a matching event",
+                  "status": "passed",
+                  "duration": 0.002409,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the rule is not triggered",
+                  "status": "passed",
+                  "duration": 0.311737,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "only-matching-event-type-rules-evaluated",
+          "scenario_name": "Only matching event_type rules evaluated",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f4-event-publishing",
+              "scenario_id": "only-matching-event-type-rules-evaluated",
+              "test_name": "test_only_matching_event_type_rules_evaluated",
+              "original_name": "test_only_matching_event_type_rules_evaluated",
+              "nodeid": "tests/test_f4-event-publishing.py::test_only_matching_event_type_rules_evaluated",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F4 \u2014 Event Publishing",
+              "scenario_name": "Only matching event_type rules evaluated",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "medium",
+              "status": "passed",
+              "duration": 0.31138845800887793,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule listening for event_type \"order.created\"",
+                  "status": "passed",
+                  "duration": 0.005751,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST an event with type \"user.created\"",
+                  "status": "passed",
+                  "duration": 0.002089,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the rule is not triggered",
+                  "status": "passed",
+                  "duration": 0.303296,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "rule-does-not-fire-when-a-condition-fails",
+          "scenario_name": "Rule does not fire when a condition fails",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f4-event-publishing",
+              "scenario_id": "rule-does-not-fire-when-a-condition-fails",
+              "test_name": "test_rule_does_not_fire_when_a_condition_fails",
+              "original_name": "test_rule_does_not_fire_when_a_condition_fails",
+              "nodeid": "tests/test_f4-event-publishing.py::test_rule_does_not_fire_when_a_condition_fails",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F4 \u2014 Event Publishing",
+              "scenario_name": "Rule does not fire when a condition fails",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.31821499997749925,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given the same rule",
+                  "status": "passed",
+                  "duration": 0.004505,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST an event with payload {\"user\": {\"role\": \"member\"}}",
+                  "status": "passed",
+                  "duration": 0.002525,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then no DispatchRecord is created for that rule",
+                  "status": "passed",
+                  "duration": 0.310958,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "scenario_id": "rule-fires-when-all-conditions-match",
+          "scenario_name": "Rule fires when all conditions match",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f4-event-publishing",
+              "scenario_id": "rule-fires-when-all-conditions-match",
+              "test_name": "test_rule_fires_when_all_conditions_match",
+              "original_name": "test_rule_fires_when_all_conditions_match",
+              "nodeid": "tests/test_f4-event-publishing.py::test_rule_fires_when_all_conditions_match",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F4 \u2014 Event Publishing",
+              "scenario_name": "Rule fires when all conditions match",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.009859792015049607,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given a rule with event_type \"user.created\" and condition user.role eq \"admin\"",
+                  "status": "passed",
+                  "duration": 0.004408,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I POST an event {\"type\": \"user.created\", \"payload\": {\"user\": {\"role\": \"admin\"}}}",
+                  "status": "passed",
+                  "duration": 0.003533,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the rule is triggered and a DispatchRecord with status \"sent\" is created",
+                  "status": "passed",
+                  "duration": 0.001695,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    },
+    {
+      "feature_id": "f5-dispatch-records",
+      "feature_name": "F5 \u2014 Dispatch Records",
+      "feature_priority": "medium",
+      "scenarios": [
+        {
+          "scenario_id": "records-returned-newest-first",
+          "scenario_name": "Records returned newest first",
+          "is_parameterized": false,
+          "executions": [
+            {
+              "feature_id": "f5-dispatch-records",
+              "scenario_id": "records-returned-newest-first",
+              "test_name": "test_records_returned_newest_first",
+              "original_name": "test_records_returned_newest_first",
+              "nodeid": "tests/test_f5-dispatch-records.py::test_records_returned_newest_first",
+              "is_parameterized": false,
+              "parameters": {},
+              "feature_name": "F5 \u2014 Dispatch Records",
+              "scenario_name": "Records returned newest first",
+              "tags": [],
+              "feature_priority": "medium",
+              "scenario_priority": "high",
+              "status": "passed",
+              "duration": 0.011737915978301316,
+              "error": null,
+              "steps": [
+                {
+                  "description": "Given two events that triggered the same rule at different times",
+                  "status": "passed",
+                  "duration": 0.0099,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "When I GET /dispatch-records?rule_id=<built-in function id>",
+                  "status": "passed",
+                  "duration": 0.001646,
+                  "error": null,
+                  "skipped_reason": null
+                },
+                {
+                  "description": "Then the more recent record appears first",
+                  "status": "passed",
+                  "duration": 2e-06,
+                  "error": null,
+                  "skipped_reason": null
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    }
+  ]
+}

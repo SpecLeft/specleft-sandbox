@@ -1,111 +1,109 @@
-# SpecLeft CLI Reference
+---
+name: python-dev-best-practices
+description: Apply Python and software engineering best practices when implementing a project. Use this skill whenever you are writing, structuring, or reviewing Python code — especially for REST APIs, backend services, or multi-feature projects. Trigger on any Python implementation task involving multiple components, layers, or features where design quality, testability, and maintainability matter.
+---
 
-## Setup
-`export SPECLEFT_COMPACT=1`
-All commands below run in compact mode.
+# Python Software Development Best Practices
 
-## Workflow
-1. specleft next --limit 1
-2. Implement test logic
-3. specleft features validate
-4. specleft skill verify
-5. pytest
-6. Repeat
-
-## Quick checks
-- Validation: check exit code first, parse JSON only on failure
-- Coverage: `specleft coverage --threshold 100` and check exit code
-- Status: `specleft status` for progress snapshots
-
-## Safety
-- Always `--dry-run` before writing files
-- Never use `--force` unless explicitly requested
-- Exit codes: 0 = success, 1 = error, 2 = cancelled
-- Commands are deterministic and safe to retry
+Apply the following principles whenever implementing a Python project.
 
 ---
 
-## Features
+## Project Structure
 
-### Validate specs
-`specleft features validate --format json [--dir PATH] [--strict]`
-Validate before generating tests. `--strict` treats warnings as errors.
+Organise code by responsibility, not by type. A flat `models.py` / `routes.py` / `utils.py` structure becomes unmaintainable. Prefer:
 
-### List features
-`specleft features list --format json [--dir PATH]`
+```
+src/
+  <domain>/
+    models.py       # Data shapes
+    repository.py   # Persistence logic
+    service.py      # Business logic
+    router.py       # HTTP layer (if FastAPI/Django)
+    schemas.py      # Request/response validation
+tests/
+  <domain>/
+    test_<feature>.py
+```
 
-### Show stats
-`specleft features stats --format json [--dir PATH] [--tests-dir PATH]`
+One module per responsibility. If a file is doing more than one thing, split it.
 
-### Add a feature
-`specleft features add --format json --id FEATURE_ID --title "Title" [--priority PRIORITY] [--description TEXT] [--dir PATH] [--dry-run]`
-Creates `<features-dir>/feature-id.md`. Never overwrites existing files.
-Use `--interactive` for guided prompts (TTY only).
+---
 
-### Add a scenario
-`specleft features add-scenario --format json --feature FEATURE_ID --title "Title" [--id SCENARIO_ID] [--step "Given ..."] [--step "When ..."] [--step "Then ..."] [--priority PRIORITY] [--tags "tag1,tag2"] [--dir PATH] [--tests-dir PATH] [--dry-run] [--add-test MODE] [--preview-test]`
-Appends to feature file. `--add-test` generates a test file.
-`--preview-test` shows test content without writing. Use `--interactive`
-for guided prompts (TTY only).
+## SOLID Principles
 
-## Status and Planning
+**Single Responsibility** — Each class or function has one reason to change. A route handler should not contain business logic or query construction.
 
-### Show status
-`specleft status --format json [--dir PATH] [--feature ID] [--story ID] [--unimplemented] [--implemented]`
+**Open/Closed** — Extend behaviour without modifying existing code. Use abstract base classes or protocols for extensible components (e.g. dispatch channels, condition operators). Adding a new variant should require adding a new class, not editing a switch statement.
 
-### Next scenario to implement
-`specleft next --format json [--dir PATH] [--limit N] [--priority PRIORITY] [--feature ID] [--story ID]`
+**Liskov Substitution** — Subtypes must be substitutable for their base types. Avoid overriding methods in ways that change their contract.
 
-### Coverage metrics
-`specleft coverage --format json [--dir PATH] [--threshold N] [--output PATH]`
-`--threshold N` exits non-zero if coverage drops below `N%`.
+**Interface Segregation** — Depend on narrow interfaces. A service that only needs to read data should not depend on a full read/write repository.
 
-## Test Generation
+**Dependency Inversion** — High-level modules depend on abstractions, not concrete implementations. Inject dependencies; do not instantiate them inside functions.
 
-### Generate skeleton tests
-`specleft test skeleton --format json [-f FEATURES_DIR] [-o OUTPUT_DIR] [--dry-run] [--force] [--single-file] [--skip-preview]`
-Always run `--dry-run` first. Never overwrite without `--force`.
+---
 
-### Generate stub tests
-`specleft test stub --format json [-f FEATURES_DIR] [-o OUTPUT_DIR] [--dry-run] [--force] [--single-file] [--skip-preview]`
-Minimal test scaffolding with the same overwrite safety rules.
+## DRY
 
-### Generate test report
-`specleft test report --format json [-r RESULTS_FILE] [-o OUTPUT_PATH] [--open-browser]`
-Builds an HTML report from `.specleft/results/`.
+- Extract repeated logic into named functions or classes immediately — do not wait until the third occurrence
+- Shared validation belongs in one place (Pydantic validators, not scattered conditionals)
+- Query patterns belong in a repository layer, not repeated across service methods
 
-## Planning
+---
 
-### Generate specs from PRD
-`specleft plan --format json [--from PATH] [--dry-run] [--analyze] [--template PATH]`
-`--analyze` inspects PRD structure without writing files.
-`--template` uses a YAML section-matching template.
+## Design Patterns to Apply
 
-## Contract
+**Strategy** — For swappable behaviour (e.g. different channel dispatch types, different condition operators). Each variant implements a common interface; a registry or factory selects the right one.
 
-### Show contract
-`specleft contract --format json`
+**Repository** — Abstract all persistence behind a class with explicit methods (`get`, `create`, `delete`, etc.). Services call the repository; they never construct queries directly.
 
-### Verify contract
-`specleft contract test --format json [--verbose]`
-Run to verify deterministic and safe command guarantees.
+**Factory / Registry** — Use a dict-based registry to map string identifiers to classes. Avoids `if/elif` chains that violate Open/Closed.
 
+```python
+CHANNEL_REGISTRY: dict[str, type[BaseChannel]] = {
+    "webhook": WebhookChannel,
+    "email": EmailChannel,
+    "log": LogChannel,
+}
+```
 
-## Enforcement
+---
 
-### Enforce policy
-`specleft enforce [POLICY_FILE] --format json [--dir PATH] [--tests PATH] [--ignore-feature-id ID]`
-Default policy: `.specleft/policies/policy.yml`.
-Exit codes: 0 = satisfied, 1 = violated, 2 = license issue.
+## Testing
 
-## License
+- Write tests before or alongside implementation, not after
+- Test behaviour, not implementation — assert on outcomes, not internal state
+- One test file per feature domain, mirroring the source structure
+- Use `pytest` fixtures for shared setup; avoid repetition in test bodies
+- Mock at the boundary (I/O, HTTP, external services) — not deep inside business logic
+- Each scenario in the spec maps to at least one test; edge cases and failure paths get their own tests
 
-### License status
-`specleft license status [--file PATH]`
-Show license status and validated policy metadata.
-Default: `.specleft/policies/policy.yml`.
+---
 
-## Guide
+## FastAPI Specifics
 
-### Show workflow guide
-`specleft guide --format json`
+- Define Pydantic schemas for all request and response bodies — never use raw dicts
+- Keep routers thin: validate input, call a service, return output
+- Use dependency injection (`Depends`) for database sessions, services, and auth
+- Use `async def` for route handlers; use background tasks (`BackgroundTasks`) for fire-and-forget work
+- Return appropriate HTTP status codes — do not default everything to `200`
+
+---
+
+## Code Readability
+
+- Functions should fit on one screen; if they don't, break them up
+- Name things after what they are, not how they work (`dispatch_to_channel`, not `do_thing`)
+- Avoid comments that describe what the code does — write code that is self-describing
+- Use type hints throughout; do not use `Any` unless genuinely unavoidable
+- Prefer explicit over implicit — a reader should not need to trace three files to understand what a function does
+
+---
+
+## Error Handling
+
+- Raise domain-specific exceptions from service and repository layers
+- Catch and translate to HTTP errors at the router layer only
+- Never swallow exceptions silently — log or re-raise
+- Validate inputs at the boundary (Pydantic schemas); do not validate the same thing twice deeper in the stack
