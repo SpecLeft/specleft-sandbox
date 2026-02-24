@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "specleft": {
+      "command": "uvx",
+      "args": ["specleft", "mcp"],
+      "type": "stdio"
+    }
+  }
+}
