@@ -40,10 +40,12 @@ Do not modify the tests to make them pass. Fix the implementation instead.
 ### Retrospective
 
  1. Run server and verify behaviour in ../prd.
+ 2. Confirm all behaviour from prd are covered (if using specleft mcp, run: `specleft status`)
  2. Once behaviour is confirmed as working - briefly summarise retrospectively on how the implementation went for this project:
 - How many failed test runs before all tests pass
-- Token usage for phases: spec externalisation, implementation, testing, behaviour verification
+- Time spent on phases: spec externalisation, implementation, testing, behaviour verification
+- Clarity of project scope on each phase (letter grade scoring): spec externalisation, implementation, testing, behaviour verification
 - What went well
 - what was missed or inefficient
 - what to improve and what can be done to help achieve improvements
-
+3. Publish this retro in to the comments of the created PR
