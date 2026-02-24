@@ -385,7 +385,7 @@ wheels = [
 
 [[package]]
 name = "specleft"
-version = "0.2.2"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -397,9 +397,9 @@ dependencies = [
     { name = "python-slugify" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/28/e5/ee48a0fed626c6882592689a91cdb46e22d27316b61e4f9c5f3f75615ae0/specleft-0.2.2.tar.gz", hash = "sha256:190150df8e7e100d647fdf5b718ef9a265759b9204583f83a81fdd89bf1b2f97", size = 81258, upload-time = "2026-02-11T00:57:36.476Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/77/c0/c59f9e2c3a565c0c5a1c29ce799d7f129922f00c4049343bb922d8b88747/specleft-0.3.0.tar.gz", hash = "sha256:b18420265268f7a4ad168930c098c9c338c7735f754f7ae718895a88d005be83", size = 91902, upload-time = "2026-02-22T00:09:34.55Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/da/09/feffe27b919a4cf6ba3db6d9aff172ec60ba7fbbbec951a4506ac43d845b/specleft-0.2.2-py3-none-any.whl", hash = "sha256:08332ea911b7b6603b9687ba18ea43a75a9bdc8dacf3599b813bc573b7178226", size = 102516, upload-time = "2026-02-11T00:57:33.845Z" },
+    { url = "https://files.pythonhosted.org/packages/86/21/221f3d133bddd901cc907706ae3a9af5f9da96d4f9a627fedc709a27b4c0/specleft-0.3.0-py3-none-any.whl", hash = "sha256:e49282299e204eb440e81c757470278457dbde82bb4ba9ca3fd141277a2d0987", size = 119426, upload-time = "2026-02-22T00:09:33.125Z" },
 ]
 
 [[package]]
