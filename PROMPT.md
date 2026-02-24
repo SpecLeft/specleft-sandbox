@@ -15,6 +15,7 @@ Do not ask clarifying questions. All requirements are defined in the PRD. Make r
 - GitHub CLI (`gh`) available and authenticated
 - Use SpecLeft MCP if the MCP config is setup in the project, otherwise follow your most suitable implementation workflow for this project that is not SpecLeft.
 - If SpecLeft MCP is there - you must follow it's resources and CLI workflow pattern. It is not complex.
+- Update specleft prd-template.yml to exclude non feature headings from the spec generation.
 
 ---
 
