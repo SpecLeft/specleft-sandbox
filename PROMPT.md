@@ -1,0 +1,37 @@
+# Implementation Prompt: Notification Rules Engine
+
+## Context
+
+You are implementing a REST API project from a PRD. The SpecLeft MCP is installed and available. Use it to drive the full workflow: generate a behavioural spec, produce tests from that spec, implement the code to pass those tests, and raise a pull request.
+
+Do not ask clarifying questions. All requirements are defined in the PRD. Make reasonable engineering decisions where the PRD is silent.
+
+---
+
+## Prerequisites
+
+- Python 3.12 environment available
+- Git repository initialised with a `main` branch
+- GitHub CLI (`gh`) available and authenticated
+- Use SpecLeft MCP if the MCP config is setup in the project, otherwise follow your most suitable implementation workflow for this project that is not SpecLeft.
+
+---
+
+## Resources
+
+**Product Requirements Doc**: PRD.md
+
+**Skill**: SKILL.md
+
+---
+
+## Instructions
+
+1. Derive a behavioural spec from the PRD
+2. Produce tests from the spec before writing any implementation
+3. Implement the API to pass all tests
+4. Ensure all tests pass locally before proceeding
+5. Commit the implementation to a new branch named `feat/notification-rules-engine`
+6. Raise a pull request against `main` with a clear description of what was built and why
+
+Do not modify the tests to make them pass. Fix the implementation instead.
